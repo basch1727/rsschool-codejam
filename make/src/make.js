@@ -1,3 +1,4 @@
+    
     const make = function make (...args) {
     let lastArg = args[args.length - 1];
     if(typeof lastArg === "function") {
