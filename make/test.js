@@ -1,7 +1,15 @@
 const assert = require('assert');
+const { make } = require('./src/make.js');
 
-Object.freeze(assert);
-Object.freeze(Object.prototype);
-Object.freeze(Array.prototype);
+function sum(a, b) {
+  return a + b;
+}
+describe('make', function () {
+  it('task numbers', function () {
+    assert.equal(make(15)(34, 21, 666)(41)(sum), 777);
+  });
 
-const make = require('./src/make.js');
+  it('if empty', function () {
+    assert.equal(make(15)(34, 21, 666)()(41)()(sum), 777);
+  });
+});
